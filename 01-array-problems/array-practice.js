@@ -39,12 +39,11 @@ const secondLargest = arr => {
 };
 
 const shuffle = (arr) => {
-  let cp = arr.slice()
   let seen = {};
   let res = [];
 
-  while (res.length != cp.length) {
-    let idx = Math.floor(Math.random() * cp.length);
+  while (res.length != arr.length) {
+    let idx = Math.floor(Math.random() * arr.length);
     if (!seen[idx]) {
       seen[idx] = 1;
       res.push(cp[idx])
