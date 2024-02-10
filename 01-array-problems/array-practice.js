@@ -1,38 +1,56 @@
 const findMinimum = arr => {
+  if (!arr.length) return;
 
-  // Your code here 
-
+  let min = Infinity;
+  arr.forEach(el => el < min ? min = el : null) // n
+  return min;
 };
 
 const runningSum = arr => {
-
-  // Your code here 
+  arr.forEach((_el, i) => {
+    if (arr[i] + arr[i - 1]) arr[i] = arr[i] + arr[i - 1];
+  }); // n
+  return arr;
 };
 
-const evenNumOfChars = arr => {
-
-  // Your code here 
-};
+const evenNumOfChars = arr => arr.filter(el => el.length % 2 === 0).length; // n
 
 const smallerThanCurr = arr => {
+  let sorted = arr.slice().sort();
+  let count = {};
 
-  // Your code here 
+  arr.forEach(el => {
+    count[el] = sorted.indexOf(el);
+  }); // n^2
 
+  return arr.map(el => count[el]);
 };
 
 const twoSum = (arr, target) => {
-
-  // Your code here 
+  for (let i = 0; i < arr.length; i++) {
+    if (arr.indexOf( target - arr[i] ) !== -1) return true;
+  } // n^2
+  return false;
 };
 
 const secondLargest = arr => {
-
-  // Your code here 
+  let sorted = arr.sort(); // n
+  return sorted[sorted.length - 2];
 };
 
 const shuffle = (arr) => {
+  let cp = arr.slice()
+  let seen = {};
+  let res = [];
 
-  // Your code here 
+  while (res.length != cp.length) {
+    let idx = Math.floor(Math.random() * cp.length);
+    if (!seen[idx]) {
+      seen[idx] = 1;
+      res.push(cp[idx])
+    }
+  } // n
+  return res;
 };
 
 
