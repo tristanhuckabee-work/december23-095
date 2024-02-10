@@ -19,8 +19,8 @@ const smallerThanCurr = arr => {
   let sorted = arr.slice().sort();
   let count = {};
 
-  arr.forEach(el => {
-    count[el] = sorted.indexOf(el);
+  sorted.forEach((el, i) => {
+    if (!count[el]) count[el] = i;
   }); // n^2
 
   return arr.map(el => count[el]);
@@ -46,7 +46,7 @@ const shuffle = (arr) => {
     let idx = Math.floor(Math.random() * arr.length);
     if (!seen[idx]) {
       seen[idx] = 1;
-      res.push(cp[idx])
+      res.push(arr[idx])
     }
   } // n
   return res;
